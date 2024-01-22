@@ -1,0 +1,11 @@
+.customSize{
+    width: 60px;
+    height: 60px;
+}
+
+.buttonStyle{
+    box-shadow: 0 20px 30px -6px rgba(4, 141, 109, 0.4);
+  }
+.whitetext{
+    color: rgba(255, 255, 255, 0.91);
+}

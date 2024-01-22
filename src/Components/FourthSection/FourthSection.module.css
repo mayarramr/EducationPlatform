@@ -1,0 +1,7 @@
+.rightimg {
+    border-radius: 50% !important;
+}
+.rightimg2 {
+    border-radius: 50% !important;
+    transform: translateY(-10px);
+}

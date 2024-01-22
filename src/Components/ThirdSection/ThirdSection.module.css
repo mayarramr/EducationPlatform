@@ -1,0 +1,11 @@
+.layer{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(17, 41, 53, 0.422);
+    left: 0;
+    right: 0;
+}
+.bgColor{
+    background-color: #3bc3afe4 !important ;
+}

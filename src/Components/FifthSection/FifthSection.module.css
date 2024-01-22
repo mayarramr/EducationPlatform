@@ -1,0 +1,12 @@
+.play{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(225, 36, 36);
+    border-radius: 50%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+}

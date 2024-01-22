@@ -1,0 +1,10 @@
+.gradcolor{
+    background: linear-gradient(to right, #4ed3d3, #003935);
+    background-clip: text; 
+    color: transparent;
+}
+.shadowbox {
+    box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1); 
+}
+  
+  
