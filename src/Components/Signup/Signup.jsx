@@ -3,6 +3,7 @@ import Style from './Signup.module.css'
 import signupImg from '../../Assets/img6.jpg'
 import ggl from '../../Assets/gglicn.png'
 import { Link, useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 
 
@@ -16,6 +17,10 @@ export default function Signup() {
 
 
     return<>
+     <Helmet>
+                <title>Sign Up</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
     <div className="container pt-5">
         <div className="row py-5">
             <div className="col-md-6">

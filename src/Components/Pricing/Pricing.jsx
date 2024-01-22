@@ -1,10 +1,15 @@
 import React from 'react'
 import Style from './Pricing.module.css'
 import { useMediaQuery } from 'react-responsive'
+import { Helmet } from 'react-helmet'
 
 export default function Pricing() {
     const isScreenSmall=useMediaQuery({maxWidth:576})
     return <>
+     <Helmet>
+                <title>Subscription</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+    </Helmet>
     <div className="container pt-5">
    <div className="pt-4 font-sm">
    <p>Enter Your Data <span className="text-color"><i className="fa-solid text-color fa-angles-right px-3"></i> Choose Your Subscription</span></p>
