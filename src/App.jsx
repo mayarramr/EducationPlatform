@@ -7,7 +7,6 @@ import Notfound from './Components/Notfound/Notfound';
 import Pricing from './Components/Pricing/Pricing';
 import Login from './Components/Login/Login';
 import {RouterProvider, createBrowserRouter } from 'react-router-dom';
-import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 
 
 let routers = createBrowserRouter ([

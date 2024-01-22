@@ -158,7 +158,7 @@ export default function FifthSection() {
                 </div>
             </div>
 
-            <div className={`col-md-3 rounded-4 p-0 light-green shadowbox  ${isScreenSmall?'':'me-4'}`} style={{width:'300px'}}>
+            <div className={`col-md-3 rounded-4 p-0 light-green shadowbox  ${isScreenSmall?'mt-4':''}`} style={{width:'300px'}}>
                 <div>
                     <img src={people} style={{height:'205px'}} className="w-100 rounded-top-4" alt="" />
                 </div>
