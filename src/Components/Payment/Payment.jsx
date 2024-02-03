@@ -7,6 +7,7 @@ import money from "../../Assets/money.png";
 import payImg from "../../Assets/paymentimg.png";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { Helmet } from "react-helmet";
 
 export default function Payment() {
   const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
@@ -16,6 +17,10 @@ export default function Payment() {
   }
   return (
     <>
+    <Helmet>
+        <title>Payment</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="container my-5">
         <div className="py-4 font-sm">
           <p>

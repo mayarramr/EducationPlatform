@@ -6,6 +6,7 @@ import Recommended from "../Recommended/Recommended";
 import Choices from "../Choices/Choices";
 import Personal from "../Personal/Personal";
 import Views from "../Views/Views";
+import { Helmet } from "react-helmet";
 
 
 
@@ -13,6 +14,10 @@ import Views from "../Views/Views";
 export default function Library() {
   return (
     <>
+    <Helmet>
+        <title>Library</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <Lessons />
       <Favorites />
       <Recommended />

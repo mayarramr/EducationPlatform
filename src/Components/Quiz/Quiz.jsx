@@ -2,10 +2,15 @@ import React from 'react'
 import Style from './Quiz.module.css'
 import quiz from '../../Assets/quiz.jpg'
 import { useMediaQuery } from "react-responsive";
+import { Helmet } from 'react-helmet';
 
 export default function Quiz() {
     const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
     return <>
+    <Helmet>
+        <title>Quiz</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
     <div className="container mt-5">
         {isScreenSmall ? 
         <>
