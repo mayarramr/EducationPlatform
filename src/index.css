@@ -1,76 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-:root
-{
-    font-family: 'Poppins', sans-serif;
-    --main-color:#008772;
-    --light-color:#19ab95;
-    --green-color:#023126;
-    --second-color:rgb(190, 142, 76);
-    --gray: rgb(200, 200, 200);
-    
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+:root {
+  font-family: "Poppins", sans-serif;
+  --main-color: #008772;
+  --light-color: #deeeee;
+  --green-color: #023126;
+  --second-color: rgb(190, 142, 76);
+  --gray: rgb(200, 200, 200);
+  --dark-blue:#252641;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-body{
-    font-family: var(--font-family) !important;
-    overflow-x: hidden;
+body {
+  font-family: var(--font-family) !important;
+  overflow-x: hidden;
+}
+Link{
+  cursor: pointer;
 }
 .no-bold {
-    font-weight: normal !important;
+  font-weight: normal !important;
 }
-.bg-color{
-    background-color: var(--main-color) !important;
+.bg-color {
+  background-color: var(--main-color) !important;
 }
-.bg-light{
-    background-color: var(--light-color) !important ;
+.bg-greenlight {
+  background-color: var(--light-color) !important ;
 }
-.bg-green{
-    background-color: var(--green-color) !important;
+.bg-green {
+  background-color: var(--green-color) !important;
 }
-.bg-gold{
-    background-color: var(--second-color) !important;
+.bg-gold {
+  background-color: var(--second-color) !important;
 }
-.text-gold{
-    color: var(--second-color);
+.text-gold {
+  color: var(--second-color);
 }
-.text-color{
-    color: var(--main-color) !important;
+.text-color {
+  color: var(--main-color) !important;
 }
-.light-green{
-    background-color: #effffd;
+.light-green {
+  background-color: #effffd;
 }
-.main-border{
-    border : 2px solid var(--main-color) !important;
+.darkblue{
+  color: var(--dark-blue) !important;
 }
-.gray-border{
-    border : 1px solid var(--gray) !important;
+.bg-darkblue{
+  background-color: var(--dark-blue);
 }
-.small-font{
-    font-size: 12px !important;
+.main-border {
+  border: 2px solid var(--main-color) !important;
 }
-.font-sm{
-    font-size: 14px !important;
+.gray-border {
+  border: 1px solid var(--gray) !important;
 }
-.font-md{
-    font-size: 18px !important;
+.small-font {
+  font-size: 12px !important;
 }
-.gray-text{
-    color: rgb(101, 101, 101) !important;
+.font-sm {
+  font-size: 14px !important;
+}
+.font-xs {
+  font-size: 10px !important;
+}
+.font-md {
+  font-size: 18px !important;
+}
+.gray-text {
+  color: rgb(101, 101, 101) !important;
+}
+.gray-bg {
+  background-color: rgb(233, 233, 233) !important;
 }
 ::placeholder {
-    font-size: 12px !important;
-    color: rgb(161, 161, 161) !important;
-  }
-a {
-    text-decoration: none !important;
-    color: black !important;
+  font-size: 12px !important;
+  color: rgb(161, 161, 161) !important;
 }
-p{
-    margin: 0 !important;
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+p {
+  margin: 0 !important;
 }
 .shadowbox {
-    box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1);
 }

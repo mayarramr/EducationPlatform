@@ -1,0 +1,6 @@
+
+.user{
+    background: linear-gradient(to bottom, #4dbeff, #105685);
+    background-clip: text; 
+    color: transparent;
+}

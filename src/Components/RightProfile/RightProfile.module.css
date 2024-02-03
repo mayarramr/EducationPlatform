@@ -1,0 +1,14 @@
+.border{
+    border: 3px dashed #008772;
+
+}
+.customCheckbox{
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    width: 12px;
+    height: 13px;
+    background-color: #008772;
+    border: 1px solid #008772;
+    border-radius: 3px;
+}
