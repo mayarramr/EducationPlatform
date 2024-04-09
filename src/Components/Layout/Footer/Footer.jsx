@@ -33,8 +33,8 @@ export default function Footer() {
                 Subscribe to get our new Newsletter
               </h6>
             </div>
-            <div className={`row justify-content-center pb-4 px-2`}>
-            <div>
+            <div className={`row justify-content-center pb-4 `}>
+            <div className="d-flex">
             <input
                 type="email"
                 className="bg-transparent border-main py-2 gray-border rounded-5 px-3"

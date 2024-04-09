@@ -15,25 +15,22 @@ export default function FirstSection() {
           <div className="row justify-content-between">
             <div className="col-md-5 flex-column d-flex justify-content-center align-items-center">
               <div
-                className={`d-flex align-items-center ${
-                  isScreenSmall ? "" : "ms-5"
-                }`}
+                className={`d-flex align-items-center ${isScreenSmall ? "" : "ms-5"
+                  }`}
               >
                 <h4
-                  className={` text-white fw-bold ${
-                    isScreenSmall ? "fs-1 mt-5 text-center" : "fs-1 ps-5"
-                  }`}
+                  className={` text-white fw-bold ${isScreenSmall ? "fs-1 mt-5 text-center" : "fs-1 ps-5"
+                    }`}
                 >
                   <span className={`${Style.goldfont}`}>Studying</span> Online
                   is now much easier
                 </h4>
               </div>
               <p
-                className={`text-white fs-6  no-bold ${
-                  isScreenSmall
+                className={`text-white fs-6  no-bold ${isScreenSmall
                     ? "mx-3 px-0 mt-0 text-center"
                     : "mx-5 px-5 mt-4"
-                }`}
+                  }`}
               >
                 USAM is an interesting platform that will teach you in more an
                 interactive way
@@ -41,9 +38,8 @@ export default function FirstSection() {
               <div className="ps-5 ms-5 w-100">
                 <Link
                   to={"/pricing"}
-                  className={`btn ms-5 bg-green py-2 px-4  text-white rounded-5 ${
-                    isScreenSmall ? "my-3" : "my-5"
-                  }`}
+                  className={`btn ms-5 bg-green py-2 px-4  text-white rounded-5 ${isScreenSmall ? "my-3" : "my-5"
+                    }`}
                 >
                   Subscribe
                 </Link>
@@ -52,15 +48,13 @@ export default function FirstSection() {
 
             <div className="col-md-5">
               <div
-                className={`w-100 position-relative  ${
-                  isScreenSmall ? "d-flex justify-content-center" : ""
-                }`}
+                className={`w-100 position-relative  ${isScreenSmall ? "d-flex justify-content-center" : ""
+                  }`}
               >
                 <img src={home} className="w-50" alt="" />
                 <div
-                  className={`row position-absolute top-0 ${
-                    isScreenSmall ? "end-0 mt-5" : "start-50 translate-middle-x"
-                  }`}
+                  className={`row position-absolute top-0 ${isScreenSmall ? "end-0 mt-5" : "start-50 translate-middle-x"
+                    }`}
                 >
                   <div className="mt-4">
                     <div
@@ -81,11 +75,10 @@ export default function FirstSection() {
                 </div>
 
                 <div
-                  className={`row position-absolute  ${
-                    isScreenSmall
+                  className={`row position-absolute  ${isScreenSmall
                       ? "start-0 mb-5"
                       : "bottom-50 mb-5 start-0 translate-middle-x"
-                  }`}
+                    }`}
                 >
                   <div className=" pb-5 pe-5">
                     <div
@@ -106,11 +99,10 @@ export default function FirstSection() {
                 </div>
 
                 <div
-                  className={`row position-absolute  ${
-                    isScreenSmall
+                  className={`row position-absolute  ${isScreenSmall
                       ? "top-50 start-0 ms-2"
                       : "top-50 start-50 translate-middle-x"
-                  }`}
+                    }`}
                 >
                   <div
                     className={`${Style.boxOne} px-3 py-2 rounded-4 d-flex align-items-center`}
@@ -129,9 +121,8 @@ export default function FirstSection() {
                 </div>
 
                 <div
-                  className={`row position-absolute bottom-0 ${
-                    isScreenSmall ? "end-0" : "mb-5 start-0 translate-middle-x"
-                  }`}
+                  className={`row position-absolute bottom-0 ${isScreenSmall ? "end-0" : "mb-5 start-0 translate-middle-x"
+                    }`}
                 >
                   <div className="">
                     <div className={`${Style.boxOne} px-3 py-2 rounded-4`}>

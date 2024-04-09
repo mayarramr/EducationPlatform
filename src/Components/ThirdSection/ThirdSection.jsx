@@ -6,7 +6,10 @@ import { useMediaQuery } from "react-responsive";
 
 export default function ThirdSection() {
   const isScreenSmall = useMediaQuery({ maxWidth: 576 });
-
+  const sectionData = [
+    { imgSrc: leftimg, title: 'FOR INSTRUCTORS', buttonText: 'Start a class today', buttonClassName: 'btn btn-sm py-2 rounded-4 small-font px-4 border border-2 text-white my-3' },
+    { imgSrc: rightimg, title: 'FOR STUDENTS', buttonText: 'Enter access code', buttonClassName: `${Style.bgColor} small-font btn px-4 py-2 rounded-4 text-white my-3` },
+  ];
   return (
     <>
       <div className="row justify-content-center my-5">
@@ -23,39 +26,20 @@ export default function ThirdSection() {
         </div>
       </div>
 
-      <div
-        className={`row justify-content-center mb-5 ${
-          isScreenSmall ? "mx-2 px-1" : "mx-5 px-5"
-        }`}
-      >
-        <div className="col-md-4 p-0">
-          <div className="position-relative">
-            <img src={leftimg} className="w-100 rounded-4" alt="" />
-            <div className={`${Style.layer} rounded-4 `}>
-              <div className="top-50 position-absolute start-50 translate-middle text-center">
-                <p className="fs-5 fw-bold text-white">FOR INSTRUCTORS</p>
-                <button className="btn btn-sm py-2 rounded-4 small-font px-4 border border-2 text-white my-3">
-                  Start a class today
-                </button>
+      <div className={`row justify-content-center mb-5 ${isScreenSmall ? 'mx-2 px-1' : 'mx-5 px-5'}`}>
+        {sectionData.map((item, index) => (
+          <div key={index} className={`col-md-4 p-0 ${index === 1 && (isScreenSmall ? 'mt-3' : 'offset-1')}`}>
+            <div className="position-relative">
+              <img src={item.imgSrc} className="w-100 rounded-4" alt="" />
+              <div className={`${Style.layer} rounded-4`}>
+                <div className="top-50 position-absolute start-50 translate-middle text-center">
+                  <p className="fs-5 fw-bold text-white">{item.title}</p>
+                  <button className={item.buttonClassName}>{item.buttonText}</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className={`col-md-4 p-0 ${isScreenSmall ? "mt-3" : "offset-1"}`}>
-          <div className="position-relative">
-            <img src={rightimg} className="w-100 rounded-4" alt="" />
-            <div className={`${Style.layer} rounded-4 `}>
-              <div className="top-50 position-absolute start-50 translate-middle text-center">
-                <p className="fs-5 fw-bold text-white">FOR STUDENTS</p>
-                <button
-                  className={`${Style.bgColor} small-font btn  px-4 py-2 rounded-4 text-white my-3`}
-                >
-                  Enter access code
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );

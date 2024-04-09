@@ -22,19 +22,19 @@ export default function Payment() {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="container my-5">
-        <div className="py-4 font-sm">
-          <p>
-            Enter Your Data
-            <span>
-              <i className="fa-solid text-color fa-angles-right px-3"></i>{" "}
-              Choose Your Subscription
-            </span>
-            <span className="text-color">
-              <i className="fa-solid text-color fa-angles-right px-3"></i> Pay
-              fees
-            </span>
-          </p>
-        </div>
+          <div className="py-4 font-sm">
+            <p>
+              Enter Your Data
+              <span>
+                <i className="fa-solid text-color fa-angles-right px-3"></i>{" "}
+                Choose Your Subscription
+              </span>
+              <span className="text-color">
+                <i className="fa-solid text-color fa-angles-right px-3"></i> Pay
+                fees
+              </span>
+            </p>
+          </div>
         <div className="row justify-content-evenly align-items-center">
           <div className={`col-md-7 shadowbox rounded-4 ${isScreenSmall ? " pb-4" : "px-5 py-4"}`}>
             <div className="pb-4">

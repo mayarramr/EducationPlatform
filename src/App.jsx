@@ -3,7 +3,6 @@ import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Signup from "./Components/Signup/Signup";
 import Home from "./Components/Home/Home";
-import Notfound from "./Components/Notfound/Notfound";
 import Pricing from "./Components/Pricing/Pricing";
 import Login from "./Components/Login/Login";
 import Payment from "./Components/Payment/Payment";
@@ -16,9 +15,7 @@ import Quiz from "./Components/Quiz/Quiz";
 
 let routers = createBrowserRouter([
   {
-    path: "/",
-    element: <Layout />,
-    children: [
+    path: "/", element: <Layout />, children: [
       { index: true, element: <Login /> },
       { path: "signup", element: <Signup /> },
       { path: "home", element: <Home /> },
@@ -28,7 +25,6 @@ let routers = createBrowserRouter([
       { path: "profile", element: <Profile /> },
       { path: "courses", element: <Courses /> },
       { path: "quiz", element: <Quiz /> },
-      { path: "*", element: <Notfound /> },
     ],
   },
 ]);

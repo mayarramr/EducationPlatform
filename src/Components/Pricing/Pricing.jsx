@@ -1,16 +1,60 @@
 import React from "react";
-import Style from "./Pricing.module.css";
 import { useMediaQuery } from "react-responsive";
 import { Helmet } from "react-helmet";
 import Payment from "../Payment/Payment";
 import { useNavigate } from "react-router-dom";
+import Style from "./Pricing.module.css";
+
+const pricingData = [
+  {
+    type: "Like a pussy",
+    price: "$500",
+    period: "/YEAR",
+    features: [
+      "Components-driven system",
+      "Sales-boosting landing pages",
+      "Awesome Feather icon pack",
+    ],
+    buttonLabel: "Subscribe Now",
+    checkIconColor: "#000000",
+  },
+  {
+    type: "Individual",
+    price: "$24",
+    period: "/MONTH",
+    shadow: 'shadowbox',
+    features: [
+      "Components-driven system",
+      "Sales-boosting landing pages",
+      "Awesome Feather icon pack",
+      "Themed into 3 different styles",
+      "Will help to learn Figma",
+    ],
+    buttonLabel: "Regular license",
+    checkIconColor: "#FFFFFF",
+  },
+  {
+    type: "Corporate",
+    price: "$12",
+    period: "/EDITOR",
+    features: [
+      "Components-driven system",
+      "Sales-boosting landing pages",
+      "Awesome Feather icon pack",
+      "Themed into 3 different styles",
+    ],
+    buttonLabel: "Extended license",
+    checkIconColor: "#000000",
+  },
+];
 
 export default function Pricing() {
   const navigate = useNavigate();
-  function navigateToPayment() {
+  const navigateToPayment = () => {
     navigate("/payment");
-  }
+  };
   const isScreenSmall = useMediaQuery({ maxWidth: 576 });
+
   return (
     <>
       <Helmet>
@@ -36,188 +80,62 @@ export default function Pricing() {
         </div>
 
         <div className={`${isScreenSmall ? "container" : ""}`}>
-          <div className="row justify-content-center pb-4">
-            <div className="col-md-3 py-3 position-relative">
-              <p className="fw-bold text-color">Like a pussy</p>
-              <h1 className="fw-bold">
-                $500 <span className="font-sm">/YEAR</span>
-              </h1>
-              <div className="d-flex align-items-center">
-                <div
-                  className="bg-dark-subtle rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Components-driven system</p>
-              </div>
-              <div className="d-flex align-items-center my-3">
-                <div
-                  className="bg-dark-subtle rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Sales-boosting landing pages</p>
-              </div>
-              <div className="d-flex align-items-center">
-                <div
-                  className="bg-dark-subtle rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Awesome Feather icon pack</p>
-              </div>
+          <div className="row justify-content-center ">
+            {pricingData.map((item, index) => (
               <div
-                className={`w-100 ${
-                  isScreenSmall
-                    ? "mt-3"
-                    : "position-absolute bottom-0 start-50 ms-5 translate-middle-x"
-                }`}
+                key={index}
+                className={`col-md-3 py-3 position-relative ${item.shadow} rounded-4 ${isScreenSmall ? "mb-4" : ""
+                  }`}
               >
-                <button className="mb-3 px-5 btn border border-1 border-black rounded-4 text-color fw-bold font-sm">
-                  Subscribe Now
-                </button>
-              </div>
-            </div>
-
-            <div
-              className={`col-md-3 shadowbox py-3 rounded-4 mx-3 ${
-                isScreenSmall ? "mb-4" : ""
-              } `}
-            >
-              <div className="d-flex align-items-center">
-                <i className={`${Style.user} mx-2 fa-solid fa-user`}></i>
-                <p className="fw-bold text-color">Individual</p>
-              </div>
-              <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex align-items-center">
+                  <i
+                    className={`${Style.user} mx-2 fa-solid fa-${item.type === "Corporate" ? "users" : "user"
+                      }`}
+                  ></i>
+                  <p className="fw-bold text-color">{item.type}</p>
+                </div>
                 <h1 className="fw-bold">
-                  $24 <span className="font-sm">/MONTH</span>
+                  {item.price} <span className="font-sm">{item.period}</span>
                 </h1>
+                {item.features.map((feature, fIndex) => (
+                  <div key={fIndex} className="d-flex align-items-center my-3">
+                    <div
+                      className={`${item.type === "Corporate"
+                        ? "bg-success-subtle"
+                        : "bg-gold"
+                        } rounded-pill d-flex align-items-center justify-content-center`}
+                      style={{ width: "30px", height: "30px" }}
+                    >
+                      <i
+                        className={`font-sm fa-solid fa-check ${item.type === "Corporate" ? "" : "text-white"
+                          }`}
+                        style={{ color: item.checkIconColor }}
+                      ></i>
+                    </div>
+                    <p className="ms-2 font-sm">{feature}</p>
+                  </div>
+                ))}
                 <div
-                  className="border border-2 border-black rounded-5 d-flex align-items-center justify-content-center px-2"
-                  style={{ height: "25px" }}
-                >
-                  <p className="font-sm">Best !</p>
-                </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <div
-                  className="bg-gold rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm text-white fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Components-driven system</p>
-              </div>
-              <div className="d-flex align-items-center my-3">
-                <div
-                  className="bg-gold rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm text-white fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Sales-boosting landing pages</p>
-              </div>
-              <div className="d-flex align-items-center">
-                <div
-                  className="bg-gold rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm text-white fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Awesome Feather icon pack</p>
-              </div>
-              <div className="d-flex align-items-center my-3">
-                <div
-                  className="bg-gold rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm text-white fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Themed into 3 different styles</p>
-              </div>
-              <div className="d-flex align-items-center">
-                <div
-                  className="bg-gold rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm text-white fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Will help to learn Figma</p>
-              </div>
-              <div className="d-flex justify-content-center">
-                <button className="btn mt-5  rounded-4  px-5 text-white bg-color fw-bold py-2">
-                  Regular license
-                </button>
-              </div>
-            </div>
-
-            <div className="col-md-3 py-3 position-relative">
-              <div className="d-flex align-items-center">
-                <i className={`${Style.user} mx-2 fa-solid fa-users`}></i>
-                <p className="fw-bold text-color">Corporate</p>
-              </div>
-              <h1 className="fw-bold">
-                $12 <span className="font-sm">/EDITOR</span>
-              </h1>
-
-              <div className="d-flex align-items-center">
-                <div
-                  className="bg-success-subtle rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Components-driven system</p>
-              </div>
-              <div className="d-flex align-items-center my-3">
-                <div
-                  className="bg-success-subtle rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm  fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Sales-boosting landing pages</p>
-              </div>
-              <div className="d-flex align-items-center">
-                <div
-                  className="bg-success-subtle rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm  fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Awesome Feather icon pack</p>
-              </div>
-              <div className="d-flex align-items-center my-3">
-                <div
-                  className="bg-success-subtle rounded-pill d-flex align-items-center justify-content-center"
-                  style={{ width: "30px", height: "30px" }}
-                >
-                  <i className="font-sm fa-solid fa-check"></i>
-                </div>
-                <p className="ms-2 font-sm">Themed into 3 different styles</p>
-              </div>
-              <div
-                className={`w-100 ${
-                  isScreenSmall
+                  className={`w-100 my-3 ${isScreenSmall
                     ? "mt-3"
-                    : "position-absolute bottom-0 start-50 ms-5 translate-middle-x"
-                }`}
-              >
-                <button className="mb-3 px-5 btn border border-1 border-black rounded-4 text-color fw-bold font-sm">
-                  Extended license
-                </button>
+                    : "ms-5"
+                    }`}
+                >
+                  <button
+                    className="mb-3 px-5 btn border border-1 border-black rounded-4 text-color fw-bold font-sm"
+                  >
+                    {item.buttonLabel}
+                  </button>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
       <div className="row justify-content-end mb-3">
         <div className="col-md-3 d-flex justify-content-center">
           <button
-            onClick={() => navigateToPayment()}
+            onClick={navigateToPayment}
             className="btn bg-color text-white rounded-5 px-4"
           >
             Continue
