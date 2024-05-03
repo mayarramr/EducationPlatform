@@ -48,6 +48,7 @@ export default function PracticeQuiz() {
          <h5 className="fw-bold m-0">Change Simplification</h5>
          <div className="row gy-2 m-0">
             {lessonData.map((lesson, index) => (
+              <Link to={'/quiz'} className="p-0">
                <div key={index} className="col-md-12 p-0">
                   <div className={`${lesson.bgColor} p-2 rounded-3`} style={lesson.bgStyle}>
                      <div className="d-flex align-items-center justify-content-between">
@@ -59,6 +60,7 @@ export default function PracticeQuiz() {
                      </div>
                   </div>
                </div>
+              </Link>
             ))}
          </div>
       </div>
