@@ -11,6 +11,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Profile from "./Components/Profile/Profile";
 import Courses from "./Components/Courses/Courses";
 import Quiz from "./Components/Quiz/Quiz";
+import Categories from "./Components/CoursesCategories/Categories";
 
 
 let routers = createBrowserRouter([
@@ -25,6 +26,7 @@ let routers = createBrowserRouter([
       { path: "profile", element: <Profile /> },
       { path: "courses", element: <Courses /> },
       { path: "quiz", element: <Quiz /> },
+      { path: "categories", element: <Categories /> },
     ],
   },
 ]);

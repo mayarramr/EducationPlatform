@@ -1,0 +1,10 @@
+.layer{
+    height: 60px;
+}
+.player{
+    left: 25%;
+    top: 0;
+    transform: translateY(-5px);
+    width: 15px;
+    height: 15px;
+}

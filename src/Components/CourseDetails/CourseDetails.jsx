@@ -13,12 +13,22 @@ import { useMediaQuery } from "react-responsive";
 
 export default function CourseDetails() {
   const coursesData = [
-    { imgSrc: img1, instructorImgSrc: person1, instructorName: 'Sara', discountedPrice: '80$' },
-    { imgSrc: Img3, instructorImgSrc: person2, instructorName: 'Nour', discountedPrice: '80$' },
-    { imgSrc: Img3, instructorImgSrc: person3, instructorName: 'Ahmed', discountedPrice: '80$' },
+    { imgSrc: img1, instructorImgSrc: person1, instructorName: 'Sara', discountedPrice: '80$' ,category: 'Business & Management'},
+    { imgSrc: Img3, instructorImgSrc: person2, instructorName: 'Nour', discountedPrice: '80$' ,category:'Web Development'},
+    { imgSrc: Img3, instructorImgSrc: person3, instructorName: 'Ahmed', discountedPrice: '80$' ,category:'Cybersecurity'},
   ];
 
-  const CourseCard = ({ imgSrc, category, duration, title, description, instructorImgSrc, instructorName, originalPrice, discountedPrice, }) => {
+  const CourseCard = ({
+    imgSrc,
+    category,
+    duration,
+    title,
+    description,
+    instructorImgSrc,
+    instructorName,
+    originalPrice,
+    discountedPrice,
+  }) => {
     return (
       <div className="bg-white rounded-4 p-3 my-4 shadowbox">
         <div>
@@ -49,13 +59,14 @@ export default function CourseDetails() {
       </div>
     );
   };
+  
 
   const generateCourseCards = (data) => {
     return data.map((course, index) => (
       <div key={index} className="col-md-4">
         <CourseCard
           imgSrc={course.imgSrc}
-          category="Design"
+          category={course.category} // Pass the category for each course
           duration="3 Month"
           title="AWS Certified Solution Architect"
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque architecto obcaecati."
@@ -67,6 +78,7 @@ export default function CourseDetails() {
       </div>
     ));
   };
+  
   const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
   return <>
     <div className="bg-color text-white p-3">

@@ -10,7 +10,7 @@ export default function Navbar() {
   const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
 
   return (
-    <div className="container-fluid px-5">
+    <div className="container-fluid px-5 mb-5">
       {["/courses", "/quiz", "/profile"].includes(location.pathname) ? 
     <>
      <nav className={`navbar navbar-expand-lg fixed-top p-0 ${location.pathname === "/home" ? "bg-color text-white" : "bg-white"}`}>
@@ -26,6 +26,11 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link to={"/home"} className={`nav-link text-black ${location.pathname === "/home" ? "text-white" : ""}`} href="#">
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-black" to={'/categories'}>
+                  Course Categories
                 </Link>
               </li>
               <li className="nav-item">
@@ -74,6 +79,11 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link to={"/home"} className={`nav-link text-black ${location.pathname === "/home" ? "text-white" : ""}`} href="#">
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-black" to={'/categories'}>
+                  Course Categories
                 </Link>
               </li>
               <li className="nav-item">
