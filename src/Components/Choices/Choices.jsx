@@ -50,7 +50,7 @@ const recommendedCourses = [
     duration: "8 Month",
     imageUrl: Img4,
     instructor: "Salma",
-    instructorImage: person1, 
+    instructorImage: person1,
     description: "Develop your acting skills and explore different techniques with this in-depth course for aspiring and experienced actors.",
     originalPrice: 200,
     discountedPrice: 160,
@@ -59,8 +59,8 @@ const recommendedCourses = [
 
 
 export default function Choices() {
-    return <>
-          <div className="container pt-5 pb-3">
+  return <>
+    <div className="container pt-5 pb-3">
       <div className="d-flex align-items-center justify-content-between">
         <h3 className="fw-bold">
           Get <span className="text-color">Choice</span> of your Course
@@ -103,7 +103,7 @@ export default function Choices() {
         ))}
       </div>
     </div>
-    </>
+  </>
 }
 
 

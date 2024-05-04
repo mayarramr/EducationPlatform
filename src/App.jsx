@@ -12,6 +12,7 @@ import Profile from "./Components/Profile/Profile";
 import Courses from "./Components/Courses/Courses";
 import Quiz from "./Components/Quiz/Quiz";
 import Categories from "./Components/CoursesCategories/Categories";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 
 let routers = createBrowserRouter([
@@ -26,6 +27,7 @@ let routers = createBrowserRouter([
       { path: "profile", element: <Profile /> },
       { path: "courses", element: <Courses /> },
       { path: "quiz", element: <Quiz /> },
+      { path: "admin-dashboard", element: <Dashboard /> },
       { path: "categories", element: <Categories /> },
     ],
   },
