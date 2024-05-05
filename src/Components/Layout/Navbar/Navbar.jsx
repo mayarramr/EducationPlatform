@@ -11,7 +11,7 @@ export default function Navbar() {
   const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
 
   return <>
-    {location.pathname === '/admin-dashboard' ?
+    {location.pathname === '/admin-dashboard' || location.pathname === '/page2' ?
       <> <DashboardNavbar /> </>
       :
       <>

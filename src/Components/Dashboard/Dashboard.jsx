@@ -13,6 +13,8 @@ import { LuUsers } from "react-icons/lu";
 import { FaHandHoldingUsd } from "react-icons/fa";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import laptop from '../../Assets/choice3.jpg'
+import { Link } from 'react-router-dom';
+
 
 const data = [
     { name: 'Group A', value: 100 },
@@ -50,12 +52,17 @@ export default function Dashboard() {
 
                     </div>
                     <div className="d-flex align-items-center">
-                        <div className="rounded-pill main-border mx-2 d-flex align-items-center justify-content-center" style={{ width: "40px", height: "40px" }}>
-                            <p>1</p>
-                        </div>
-                        <div className="rounded-pill main-border d-flex align-items-center justify-content-center text-white bg-color" style={{ width: "40px", height: "40px" }}>
-                            <p>2</p>
-                        </div>
+                        <Link to="/admin-dashboard">
+                            <div className="rounded-pill main-border mx-2 d-flex align-items-center justify-content-center" style={{ width: "40px", height: "40px" }}>
+                                <p>1</p>
+                            </div>
+                        </Link>
+                        
+                        <Link to="/page2">
+                            <div className="rounded-pill main-border d-flex align-items-center justify-content-center text-white bg-color" style={{ width: "40px", height: "40px" }}>
+                                <p>2</p>
+                            </div>
+                        </Link>
                         <div className="d-flex align-items-center blue-border text-color rounded-3 py-2 px-3 mx-3 bg-white">
                             <p>May 04, 24 - May 28, 24 EGY</p>
                             <MdOutlineKeyboardArrowDown />
@@ -133,7 +140,7 @@ export default function Dashboard() {
                             </div>
                             <div className="col-md-4">
                                 <div className="blue-border bg-white rounded-4 p-3 d-flex flex-column justify-content-between h-100">
-                                    <h4>Total courses</h4>
+                                    <h4>Total learners</h4>
                                     <div className="d-flex flex-column align-items-center">
                                         <LuUsers style={{ fontSize: "100px" }} />
                                         <h3 style={{ color: "#37E89E" }}>79</h3>
