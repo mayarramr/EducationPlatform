@@ -6,17 +6,19 @@ const CylindricalChart = () => {
   const randomData = weekdays.map(() => Math.floor(Math.random() * 100));
 
   return (
-    <div className={styles["chart-container"]}>
-      {weekdays.map((day, index) => (
-        <div className={styles["cylinder-tube"]} key={index}>
-          {/* Inner color */}
-          <div className={styles["inner-color"]} ></div>
-          <div className={styles["lines-left"]}></div> 
-          <div className={styles["lines-right"]}></div>
-          <p className={styles["day-label"]}>{day}</p>
-        </div>
-      ))}
+    <div className={` ${styles["vertical-progress"]}`}>
+    <div className="d-flex justify-content-between textLightGreen">
+        <p>Programming Courses</p>
+        <p>62%</p>
     </div>
+    <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div className="progress-bar" style={{ height: "62%", backgroundColor: "#09BC71" }}></div>
+    </div>
+</div>
+
+        
+
+     
   );
 }
 

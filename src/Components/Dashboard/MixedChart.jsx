@@ -57,14 +57,14 @@ const MixedChart = () => {
 
   return (
     <div className="container">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center align-items-center">
         <div className="col-md-6">
           <div id="chartWrapper">
             <canvas ref={chartRef}></canvas>
           </div>
         </div>
       </div>
-      <div className="row justify-content-center mt-3">
+      <div className="row justify-content-center mt-3 ">
         <div className="col-auto">
           <div className="d-flex flex-column align-items-center">
             <div className="dot mb-1" style={{ backgroundColor: '#FF4500', width: '20px', height: '20px', borderRadius: '50%' }}></div>

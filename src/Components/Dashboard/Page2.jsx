@@ -14,7 +14,7 @@ import { FaHandHoldingUsd } from "react-icons/fa";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import MixedChart from './MixedChart';
 import { Link } from 'react-router-dom';
-import MyCustomNode from './MyCustomNode';
+import SankeyChart from './SankeyChart';
 import Map from './Map';
 import CoursesbyStatus from './CoursesbyStatus';
 import CourseCard from './CourseCard';
@@ -22,12 +22,21 @@ import Chart from './CylindricalChart';
 
 
 export default function Page2(){
-    const data = [
-        { name: "Courses Viewed", value: 2400 },
-        { name: "Checkout", value: 1000 },
-        { name: "Ongoing", value: 500 },
-        { name: "New Visitors", value: 200 }
-    ];
+   
+    const data = {
+        nodes: [
+          { name: 'Courses Viewed' },
+          { name: 'Checkout' },
+          { name: 'Ongoing' },
+          { name: 'New Visitors' },
+        ],
+        links: [
+          { source: 0, target: 1, value: 20 },
+          { source: 0, target: 2, value: 15 },
+          { source: 1, target: 3, value: 10 },
+          { source: 2, target: 3, value: 5 },
+        ],
+      };
     const courses = [
         { name: "Programming", studentCount: 1580 },
         { name: "AI", studentCount: 850 },
@@ -73,9 +82,9 @@ export default function Page2(){
                             <div className="col-md-4">
                                 <div className="blue-border p-3 rounded-4 bg-white">
                                     
-                                     <h5 className="mb-1" style={{color:'1E4243',fontWeight: '500'}}>Sales Status</h5>
+                                     <h5 className="" style={{color:'1E4243',fontWeight: '500', height:'134px'}}>Sales Status</h5>
                                      <div className="d-flex justify-content-center align-items-center">
-                                            <MixedChart />
+                                            <MixedChart  />
                                      </div>
                                     
                                 </div>
@@ -84,22 +93,7 @@ export default function Page2(){
                                 <div className="blue-border p-3 rounded-4 bg-white">
                                     <div className="d-flex justify-content-between align-items-center">
                                         <h5 style={{color:'1E4243',fontWeight: '500'}}>Sales Funnel</h5>
-                                      {/*} <Sankey
-                                            width={960}
-                                            height={500}
-                                            data={data}
-                                            node={<MyCustomNode />}
-                                            nodePadding={50}
-                                            margin={{
-                                                left: 200,
-                                                right: 200,
-                                                top: 100,
-                                                bottom: 100,
-                                            }}
-                                            link={{ stroke: '#77c878' }}
-                                            >
-                                            <Tooltip />
-                                        </Sankey> */}
+                                        <SankeyChart width={800} height={400} data={data} />
                                         
                                         
                                     </div>
@@ -110,7 +104,7 @@ export default function Page2(){
                             <div className="col-md-5" >
                                 <div className="blue-border p-3 rounded-4 bg-white mt-3" style={{ height: '300px' }}>
                                     
-                                        <h5 className='mb-3' style={{color:'1E4243',fontWeight: '500'}}>courses by category</h5> 
+                                        <h5 className='mb-3' style={{color:'1E4243',fontWeight: '500'}}>Courses by ategory</h5> 
                                         <div className="d-flex justify-content-center" >
                                         <CourseCard courses={courses} />
                                         </div>
@@ -119,22 +113,48 @@ export default function Page2(){
                                 </div>
                             </div>
                             <div className="col-md-7">
-                                <div className="blue-border p-3 rounded-4 bg-white mt-3" style={{ height: '300px' }}>
-                                    <h5 style={{ color: '#1E4243', fontWeight: '500' }}>Courses Status per Day</h5>
-                                    <div className={`d-flex justify-content-between align-items-center ${styles["chart-container"]}`}>
-                                    
-                                        <Chart />
-                                    
-                                   
-                                    </div>
-                                    <div className={`d-flex justify-content-between align-items-center ${styles["weekdays-container"]}`}>
-                                        {weekdays.map((day, index) => (
-                                            <span key={index} className="weekday">{day}</span>
-                                        ))}
+                            <div className="blue-border p-3 rounded-4 bg-white mt-3" style={{ height: '300px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+                                <h5 style={{ color: '#1E4243', fontWeight: '500', marginBottom: 'auto' }}>Courses Status per Day</h5>
+                                <div style={{ display: 'flex', justifyContent: 'space-between',marginLeft:'90px' }}>
+                                    {/* First Progress Bar */}
+                                    <div className={`progress w-25 ${styles["rotate-90"]}`} >
+                                        <div className="progress-bar " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: "62%", backgroundColor: "#37E89E" }}></div>
                                     </div>
                                     
-                                 </div>
+                                    {/* Second Progress Bar */}
+                                    <div className={`progress w-25 ${styles["rotate-90"]}`}>
+                                        <div className="progress-bar w-50" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{ width: "50%", backgroundColor: "#37E89E" }}></div>
+                                    </div>
+                                    {/* Third Progress Bar */}
+                                    <div className={`progress w-25 ${styles["rotate-90"]}`}>
+                                        <div className="progress-bar w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: "88%", backgroundColor: "#37E89E" }}></div>
+                                    </div>
+                                    {/* Fourth Progress Bar */}
+                                    <div className={`progress w-25 ${styles["rotate-90"]}`}>
+                                        <div className="progress-bar w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: "20%", backgroundColor: "#37E89E" }}></div>
+                                    </div>
+                                    {/* Fifth Progress Bar */}
+                                    <div className={`progress w-25 ${styles["rotate-90"]}`}>
+                                        <div className="progress-bar w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: "74%", backgroundColor: "#37E89E" }}></div>
+                                    </div>
+                                    {/* Sixth Progress Bar */}
+                                    <div className={`progress w-25 ${styles["rotate-90"]}`}>
+                                        <div className="progress-bar w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: "5%", backgroundColor: "#37E89E" }}></div>
+                                    </div>
+                                    {/* Seventh Progress Bar */}
+                                    <div className={`progress w-25 ${styles["rotate-90"]}`}>
+                                        <div className="progress-bar w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: "100%", backgroundColor: "#37E89E" }}></div>
+                                    </div>
+                                </div>
+                                <div className={`d-flex justify-content-between align-items-center ${styles["weekdays-container"]}`}>
+                                    {weekdays.map((day, index) => (
+                                        <span key={index} className="weekday">{day}</span>
+                                    ))}
+                                </div>
                             </div>
+                        </div>
+
+
                         </div>
                         <div className="row justify-content-between my-3">
                             <div className="col-md-5">

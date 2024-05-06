@@ -50,7 +50,8 @@
 }
 
 .weekdays-container {
-    margin-right: 20px; /* Adjust as needed */
+    margin-left: 10px;
+    color: #738788; /* Adjust as needed */
 }
 
 .chart-container {
@@ -63,4 +64,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.vertical-progress {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+}
+
+.rotate-90 {
+    transform: rotate(-90deg);
+    transform-origin: 0% 0%;
 }
