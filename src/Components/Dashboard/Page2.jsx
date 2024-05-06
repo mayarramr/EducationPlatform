@@ -15,6 +15,8 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import MixedChart from './MixedChart';
 import { Link } from 'react-router-dom';
 import MyCustomNode from './MyCustomNode';
+import Map from './Map';
+import CoursesbyStatus from './CoursesbyStatus';
 
 
 export default function Page2(){
@@ -110,6 +112,15 @@ export default function Page2(){
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div className="row justify-content-between my-3">
+                            <div className="col-md-5">
+                                <CoursesbyStatus />
+                            </div>
+                            <div className="col-md-7">
+                               <Map />
+                            </div>
+
                         </div>
                     </div>
                 </div>

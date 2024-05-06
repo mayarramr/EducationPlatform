@@ -52,6 +52,9 @@ Link{
 .darkblue{
   color: var(--dark-blue) !important;
 }
+.borderBottomGreen{
+  border-bottom: #37E89E 2px solid;
+}
 .blue-border{
   border: 2px solid var(--light-blue);
 }
@@ -99,7 +102,6 @@ p {
 .shadowbox {
   box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.1);
 }
-
 .index {
   z-index: 99999;
 }
