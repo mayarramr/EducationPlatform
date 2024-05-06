@@ -1,3 +1,66 @@
 .Dashboard {
     background-color: #F6FAFB;
 }
+
+.cylinder-tube {
+    width: 35px;
+    height: 200px;
+    position: relative;
+    border: 3px solid #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+    flex: 1; /* Distribute available space equally among cylinders */
+    margin-right: 90px; /* Adjust spacing between cylinders */
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align items to the bottom */
+}
+
+.inner-color {
+    width: 100%;
+    height: 100%; /* Adjust to fill the entire cylinder */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #F2F2F2 50%, #37E89E 50%); /* Change colors as needed */
+}
+
+.lines-left,
+.lines-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px; /* Adjust the width of the lines */
+    background-color: #fffefe; /* Color of the lines */
+}
+
+.lines-left {
+    left: 0;
+}
+
+.lines-right {
+    right: 0;
+}
+
+.chart-wrapper {
+    flex: 1; /* Allow the chart to take up remaining space */
+}
+
+.weekdays-container {
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align items to the bottom */
+}
+
+.cylinder-day-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,14 +1,22 @@
 import React from 'react';
 
-function CourseCard({ courseName, studentCount }) {
+function CourseCard({ courses }) {
+  const colors = ['CFFFE6', 'D6F9FF', 'FFF6C8', 'FFF8C8'];
+
   return (
-    <div className="card bg-primary text-white p-3" style={{ width: '200px', height: '300px', borderRadius: '10px' }}>
-      <div className="d-flex flex-column justify-content-end" style={{ height: '100%' }}>
-        <div className="rounded-circle bg-white d-flex align-items-center justify-content-center mb-4" style={{ width: '60px', height: '60px' }}>
-          <p className="m-0">{studentCount}</p>
+    <div className="row">
+      {courses.map((course, index) => (
+        <div key={index} className="col-md-3 mb-3">
+          <div className="card" style={{ backgroundColor: `#${colors[index % colors.length]}`, color: 'white', borderRadius: '10px', height: '190px', width: '120px' }}>
+            <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '100%' }}>
+              <div className="bg-white d-flex align-items-center justify-content-center mb-3" style={{ width: '80px', height: '80px', borderRadius: '10px' }}>
+                <p className="m-0 text-dark font-weight-bold" style={{ fontSize: '1rem', fontWeight: '800' }}>{course.studentCount}</p>
+              </div>
+              <p className="m-0 text-center" style={{ fontSize: '0.7rem', maxWidth: '100px', whiteSpace: 'nowrap',color: '#738788' }}>{course.name}</p>
+            </div>
+          </div>
         </div>
-        <p className="m-0">{courseName}</p>
-      </div>
+      ))}
     </div>
   );
 }

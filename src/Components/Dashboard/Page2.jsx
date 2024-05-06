@@ -1,5 +1,5 @@
 import React from 'react'
-import Style from './Dashboard.module.css'
+import styles from './Dashboard.module.css'
 import { PieChart, Pie, Cell } from 'recharts';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,Sankey, ResponsiveContainer } from 'recharts';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -15,6 +15,8 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import MixedChart from './MixedChart';
 import { Link } from 'react-router-dom';
 import MyCustomNode from './MyCustomNode';
+import CourseCard from './CourseCard';
+import Chart from './CylindricalChart';
 
 
 export default function Page2(){
@@ -24,12 +26,21 @@ export default function Page2(){
         { name: "Ongoing", value: 500 },
         { name: "New Visitors", value: 200 }
     ];
+    const courses = [
+        { name: "Programming", studentCount: 1580 },
+        { name: "AI", studentCount: 850 },
+        { name: "UI/UX", studentCount: 630 },
+        { name: "Business", studentCount: 500 },
+        
+    ];
+   
+    const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     return <>
         <div className="row">
             <div className="col-md-1">
                 <DashboardNavBar />
             </div>
-            <div className={`${Style.Dashboard} col-md-11 px-5 d-flex flex-column `}>
+            <div className={`${styles.Dashboard} col-md-11 px-5 d-flex flex-column `}>
             <div className="d-flex pb-5 pt-3 justify-content-between">
                     <div className="d-flex align-items-end">
                         <h1 className="m-0">Dashboard</h1>
@@ -60,7 +71,7 @@ export default function Page2(){
                             <div className="col-md-4">
                                 <div className="blue-border p-3 rounded-4 bg-white">
                                     
-                                     <h5 className="mb-1">Sales Status</h5>
+                                     <h5 className="mb-1" style={{color:'1E4243',fontWeight: '500'}}>Sales Status</h5>
                                      <div className="d-flex justify-content-center align-items-center">
                                             <MixedChart />
                                      </div>
@@ -70,7 +81,7 @@ export default function Page2(){
                             <div className="col-md-8">
                                 <div className="blue-border p-3 rounded-4 bg-white">
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <h5>Sales Funnel</h5>
+                                        <h5 style={{color:'1E4243',fontWeight: '500'}}>Sales Funnel</h5>
                                       {/*} <Sankey
                                             width={960}
                                             height={500}
@@ -93,22 +104,34 @@ export default function Page2(){
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-md-5">
-                                <div className="blue-border p-3 rounded-4 bg-white mt-3">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <h5>courses by category</h5>
-                                        
-                                    </div>
+                        <div className="row" style={{ height: '500px' }}>
+                            <div className="col-md-5" >
+                                <div className="blue-border p-3 rounded-4 bg-white mt-3" style={{ height: '300px' }}>
+                                    
+                                        <h5 className='mb-3' style={{color:'1E4243',fontWeight: '500'}}>courses by category</h5> 
+                                        <div className="d-flex justify-content-center" >
+                                        <CourseCard courses={courses} />
+                                        </div>
+                                         
+                                    
                                 </div>
                             </div>
                             <div className="col-md-7">
-                                <div className="blue-border p-3 rounded-4 bg-white mt-3">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <h5>courses status per day</h5>
-                                        
+                                <div className="blue-border p-3 rounded-4 bg-white mt-3" style={{ height: '300px' }}>
+                                    <h5 style={{ color: '#1E4243', fontWeight: '500' }}>Courses Status per Day</h5>
+                                    <div className={`d-flex justify-content-between align-items-center ${styles["chart-container"]}`}>
+                                    
+                                        <Chart />
+                                    
+                                   
                                     </div>
-                                </div>
+                                    <div className={`d-flex justify-content-between align-items-center ${styles["weekdays-container"]}`}>
+                                        {weekdays.map((day, index) => (
+                                            <span key={index} className="weekday">{day}</span>
+                                        ))}
+                                    </div>
+                                    
+                                 </div>
                             </div>
                         </div>
                     </div>
