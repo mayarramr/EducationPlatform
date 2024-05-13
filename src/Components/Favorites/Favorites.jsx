@@ -1,5 +1,6 @@
 import React from "react";
 import Style from "./Favorites.module.css";
+import { useLanguage } from "../LanguageContext";
 
 const categories = [
   {
@@ -54,12 +55,14 @@ const categories = [
 ];
 
 export default function Favorites() {
+  const { language } = useLanguage();
   return (
     <>
       <div className="container py-5">
         <h4 className="fw-bold">
-          Choose <span className="text-color">favourite</span> course from top
-          category
+          {language === 'en' ? 'Choose' : 'اختر الدورة'}{' '}
+          <span className="text-color">{language === 'en' ? 'favorite' : 'المفضلة'}</span>{' '}
+          {language === 'en' ? 'course from top category' : ' من الفئة العليا'}
         </h4>
         <div className="row mt-5 gy-4">
           {categories.map((category) => (

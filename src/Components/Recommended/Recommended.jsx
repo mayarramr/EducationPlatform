@@ -7,6 +7,7 @@ import person3 from '../../Assets/man2.jpg'
 import Img2 from '../../Assets/IibraryImg3.png'
 import Img3 from '../../Assets/recommend1.webp'
 import Img4 from '../../Assets/recommend2.jpg'
+import { useLanguage } from '../LanguageContext'
 
 
 const recommendedCourses = [
@@ -54,15 +55,16 @@ const recommendedCourses = [
 
 
 export default function Recommended() {
+  const { language } = useLanguage();
   return <>
     <div className="bg-greenlight">
       <div className="container py-5">
         <div className="d-flex align-items-center justify-content-between">
           <h3 className="fw-bold">
-            <span className="text-color">Recommended</span> for you
+            <span className="text-color">{language === "en" ? "Recommended" : "موصى به"}</span> {language === "en" ? "for you" : " لك"}
           </h3>
           <button className="btn fw-bold text-color font-sm">
-            See All
+            {language === "en" ? "See All" : "طالع الكل"}
           </button>
         </div>
         <div className="row pb-5 pt-3">

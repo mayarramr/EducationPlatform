@@ -7,6 +7,7 @@ import person3 from '../../Assets/man2.jpg'
 import Img2 from '../../Assets/choice2.webp'
 import Img3 from '../../Assets/choice3.jpg'
 import Img4 from '../../Assets/choice4.png'
+import { useLanguage } from '../LanguageContext'
 
 
 
@@ -59,14 +60,17 @@ const recommendedCourses = [
 
 
 export default function Choices() {
-  return <>
-    <div className="container pt-5 pb-3">
+    const {language} = useLanguage();
+    return <>
+      <div className="container pt-5 pb-3">
       <div className="d-flex align-items-center justify-content-between">
         <h3 className="fw-bold">
-          Get <span className="text-color">Choice</span> of your Course
+        {language === 'en' ? 'Get' : 'إحصل على'}{' '}
+        <span className="text-color">{language === 'en' ? 'Choice' : 'اختيار'}</span>{' '}
+        {language === 'en' ? 'of your Course' : 'الدورة التدريبية الخاصة بك'}
         </h3>
         <button className="btn fw-bold text-color font-sm">
-          See All
+        {language === "en" ? "See All" : "طالع الكل"}
         </button>
       </div>
       <div className="row pb-5 pt-3">

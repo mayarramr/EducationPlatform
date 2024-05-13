@@ -1,15 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import Style from "./SecondSection.module.css";
 import { useMediaQuery } from "react-responsive";
 
+import { useLanguage } from '../LanguageContext';
+
 export default function SecondSection() {
   const isScreenSmall = useMediaQuery({ maxWidth: 576 });
+
+  const { language, toggleLanguage } = useLanguage();
+
   const data = [
-    { value: '15K+', label: 'Students' },
-    { value: '75%', label: 'Total Success' },
-    { value: '35', label: 'Main Questions' },
-    { value: '26', label: 'Chief Experts' },
-    { value: '12', label: 'Years of Experience' },
+    { value: '15K+', label: language === "en" ? 'Students' : 'الطلاب' },
+    { value: '75%', label: language === "en" ? 'Total Success' : 'النجاح الإجمالي '},
+    { value: '35', label: language === "en" ? 'Main Questions' : 'الأسئلة الرئيسية' },
+    { value: '26', label: language === "en" ? 'Chief Experts' : 'الخبراء الرئيسيين' },
+    { value: '12', label: language === "en" ? 'Years of Experience' : 'سنوات الخبرة' },
   ];
 
   const featureData = [
@@ -38,7 +43,8 @@ export default function SecondSection() {
       <div className="row justify-content-center pt-3">
         <div className="col-md-5 px-5 text-center">
           <h3>
-            Our <span className="text-color">Success</span>
+            {language === "en" ? "Our " : ""}
+            <span className="text-color">{language === "en" ? "Success" : "نجاحنا"}</span>
           </h3>
           <p className="small-font px-3 pt-2">
             Ornare id fames interdum porttitor nulla turpis etiam. Diam vitae
@@ -66,11 +72,14 @@ export default function SecondSection() {
       >
         <div className="col-md-5 text-center">
           <h3 className="fw-bold">
-            All-In-One <span className="text-color">Cloud Software</span>
+            {language === "en" ? "All-In-One " : ""}
+            <span className="text-color">{language === "en" ? "Cloud Software" : "البرنامج سحابي "}</span>
+            {language === "en" ? " " : "الكل في واحد"}
           </h3>
           <p className="font-sm gray-text">
-            USAM is one powerful online software suite that combines all the
-            tools needed to run a successful school or office.
+          {language === "en"
+          ? "USAM is one powerful online software suite that combines all the tools needed to run a successful school or office."
+          : "USAM هي مجموعة برامج قوية عبر الإنترنت تجمع بين جميع الأدوات اللازمة لتشغيل مدرسة أو مكتب ناجح."}
           </p>
         </div>
       </div>

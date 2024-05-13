@@ -3,3 +3,23 @@
 .gray{
   color: rgb(165, 165, 165) !important;
 }
+
+.languageToggleBtn {
+  background-color: #008772;
+  color: rgba(255, 255, 255, 0.83);
+  border: 1px solid #008772;
+  padding: 6px 12px; 
+  border-radius: 20px; 
+  cursor: pointer;
+  font-size: 14px; 
+  position: absolute; 
+  top: 15px; 
+  right: 350px; 
+  z-index: 1
+
+}
+
+.languageToggleBtn:hover {
+  background-color: rgba(255, 255, 255, 0.83);
+  color: #008772;
+}

@@ -7,8 +7,13 @@ import people from "../../Assets/img1.jpg";
 import code from "../../Assets/img3.jpg";
 import { useMediaQuery } from "react-responsive";
 
+import { useLanguage } from '../LanguageContext';
+
 export default function FifthSection() {
   const isScreenSmall = useMediaQuery({ maxWidth: 576 });
+
+  const { language, toggleLanguage } = useLanguage();
+
   const courseData = [
     { imgSrc: laptop, lessons: '25x Lesson', title: 'Supervised Machine Learning: Regression and Classification', instructor: 'Wade Warren', role: 'Python Developer', stars: 4, category: 'Design' },
     { imgSrc: people, lessons: '16x Lesson', title: 'Programming for everyone: Getting started with Python', instructor: 'Brooklyn Simmons', role: 'Programmer', stars: 4, category: 'Design' },
@@ -21,12 +26,13 @@ export default function FifthSection() {
         <div className="row justify-content-between mb-2 mx-3">
           <div className={`col-md-3 ${isScreenSmall ? "text-center mb-3" : ""}`}>
             <h4 className="fw-bold">
-              Our <span className="text-color">Courses</span>
+              {language === "en" ? "Our" : "" }
+              <span className="text-color">{language === "en" ? "Courses" : "دوراتنا"}</span>
             </h4>
           </div>
           <div className="col-md-2 d-flex justify-content-end">
             <button className="btn bg-color text-white rounded-5 px-4">
-              See All
+            {language === "en" ? "See All" : "طالع الكل"}
             </button>
           </div>
         </div>
@@ -71,7 +77,9 @@ export default function FifthSection() {
                     </div>
                   </div>
                   <div className="d-flex justify-content-center">
-                    <button className="btn bg-color text-white rounded-5">Enroll Now</button>
+                    <button className="btn bg-color text-white rounded-5">
+                      {language === "en" ? "Enroll Now" : "تسجيل الآن"}
+                    </button>
                   </div>
                 </div>
               </div>

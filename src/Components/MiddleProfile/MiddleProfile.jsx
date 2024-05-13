@@ -8,7 +8,8 @@ import { PiWaveSawtoothBold } from "react-icons/pi";
 import img12 from "../../Assets/img12.jpg";
 import img11 from "../../Assets/man1 (1).jpg";
 import { useMediaQuery } from "react-responsive";
-import GaugeComponent from 'react-gauge-component'
+import GaugeComponent from 'react-gauge-component';
+import { useLanguage } from "../LanguageContext";
 
 const data = [
     {
@@ -54,19 +55,20 @@ export default function MiddleProfile() {
 
     const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
     const formatYAxis = (tick, index) => `${index * 20}Hr`;
+    const { language } = useLanguage();
 
     return (
         <>
             <div className={`d-flex justify-content-between align-items-center ${isScreenSmall ? "flex-column" : ""}`}>
                 <div className="ps-4">
                     <div className={`d-flex align-items-center ${isScreenSmall ? "justify-content-center mt-3" : ""}`}>
-                        <h4 className="fw-bold me-2">Hello Maietry</h4>
+                        <h4 className="fw-bold me-2">{language === "en" ? "Hello Majesty" : "اهلاّ ماجستي"}</h4>
                         <p style={{ display: "inline" }}>&#128075;</p>
                     </div>
-                    <p className="fw-bold gray-text font-sm">Let's learn something new today</p>
+                    <p className="fw-bold gray-text font-sm">{language === "en" ? "Let's learn something new today" : "دعونا نتعلم شيئاّ جديداّ اليوم"}</p>
                 </div>
                 <div className="d-flex align-items-center justify-content-between">
-                    <input type="text" style={{ width: "300px" }} className="ps-2 border rounded-2" placeholder="Search from courses..." />
+                    <input type="text" style={{ width: "300px" }} className="ps-2 border rounded-2" placeholder={language === "en" ? "Search from courses..." : "البحث من المقررات الدراسية..."} />
 
                     <div className="d-flex border border-1 p-1 rounded-2"><i class="fa-regular fa-bell position-relative fs-5"><div className="p-1 bg-danger rounded-pill position-absolute top-0 end-0" style={{ width: "3px" }}></div></i></div>
                 </div>
@@ -91,11 +93,11 @@ export default function MiddleProfile() {
 
             <div className={`row justify-content-around ${isScreenSmall ? "mt-5" : ""}`}>
                 <div className={`col-md-6 ${isScreenSmall ? "w-75" : ""}`}>
-                    <p className="fw-bold">Hours Spent</p>
+                    <p className="fw-bold">{language === "en" ? "Hours Spent" : "الساعات المستغرقة"}</p>
                     <div className="border p-3 rounded-4">
                         <div className="d-flex align-items-center">
-                            <div className="d-flex align-items-center"><div className="rounded-1 p-1 me-1" style={{ width: "13px", height: "13px", backgroundColor: "#A9834F" }}></div><p className="gray-text fw-bold small-font">Study</p></div>
-                            <div className="d-flex align-items-center ms-4"><div className="rounded-1 p-1 me-1" style={{ width: "13px", height: "13px", backgroundColor: "#F8EFE2" }}></div><p className="gray-text small-font fw-bold">Exams</p></div>
+                            <div className="d-flex align-items-center"><div className="rounded-1 p-1 me-1" style={{ width: "13px", height: "13px", backgroundColor: "#A9834F" }}></div><p className="gray-text fw-bold small-font">{language === "en" ? "Study" : "الدراسة"}</p></div>
+                            <div className="d-flex align-items-center ms-4"><div className="rounded-1 p-1 me-1" style={{ width: "13px", height: "13px", backgroundColor: "#F8EFE2" }}></div><p className="gray-text small-font fw-bold">{language === "en" ? "Exams" : "الامتحانات"}</p></div>
                         </div>
                         <BarChart width={300} height={200} className="w-100" data={data} margin={{ top: 20, right: 10, left: 20, bottom: 5 }}>
                             <CartesianGrid strokeDasharray="5 4" />
@@ -107,11 +109,11 @@ export default function MiddleProfile() {
                     </div>
                 </div>
                 <div className={`col-md-5 ${isScreenSmall ? "w-75 mt-3" : ""}`}>
-                    <p className="fw-bold">Perfomance</p>
+                    <p className="fw-bold">{language === "en" ? "Perfomance" : "الأداء"}</p>
                     <div className="border p-3 rounded-4">
                         <div className="d-flex align-items-center justify-content-between">
-                            <div className="d-flex align-items-center"><div className="rounded-1 p-1 me-1" style={{ width: "13px", height: "13px", backgroundColor: "#45A8A3" }}></div><p className="fw-bold small-font">Point Progress</p></div>
-                            <div className="d-flex align-items-center small-font fw-bold text-black bg-dark-subtle p-2 rounded-3"><p>Monthly</p><i class="fa-solid fa-chevron-down ps-1"></i></div>
+                            <div className="d-flex align-items-center"><div className="rounded-1 p-1 me-1" style={{ width: "13px", height: "13px", backgroundColor: "#45A8A3" }}></div><p className="fw-bold small-font">{language === "en" ? "Point Progress" : "نقطة التقدم"}</p></div>
+                            <div className="d-flex align-items-center small-font fw-bold text-black bg-dark-subtle p-2 rounded-3"><p>{language === "en" ? "Monthly" : "شهريا"}</p><i class="fa-solid fa-chevron-down ps-1"></i></div>
                         </div>
                         <div>
                             <GaugeComponent className="w-75 mx-auto"
@@ -149,21 +151,21 @@ export default function MiddleProfile() {
                                 }}
                             />
                         </div>
-                        <div className="font-sm text-center"><p className="fw-bold gray-text">Your point : <span className="text-dark">8.966</span></p></div>
+                        <div className="font-sm text-center"><p className="fw-bold gray-text">{language === "en" ? "Your points :" : "نقاطك:"} <span className="text-dark">8.966</span></p></div>
                     </div>
                 </div>
             </div>
 
             <div className={`row ${isScreenSmall ? "pt-3" : "p-5"}`}>
-                <p className="p-0 fw-bold my-2">Leader Board</p>
+                <p className="p-0 fw-bold my-2">{language === "en" ? "LeaderBoard" : "المتصدرين"}</p>
                 <table class="table table-borderless ">
                     <thead className="text-center">
                         <tr>
-                            <th scope="col">Rank</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Course</th>
-                            <th scope="col">Hours</th>
-                            <th scope="col">Points</th>
+                        <th scope="col">{language === 'en' ? 'Rank' : "الرتبة"}</th>
+                        <th scope="col">{language === 'en' ? 'Name' : "الاسم"}</th>
+                        <th scope="col">{language === 'en' ? 'Course' : "الدورة"}</th>
+                        <th scope="col">{language === 'en' ? 'Hours' : "الساعات"}</th>
+                        <th scope="col">{language === 'en' ? 'Points' : "النقاط"}</th>
                         </tr>
                     </thead>
                     <tbody className="text-center">

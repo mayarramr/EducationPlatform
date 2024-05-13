@@ -5,6 +5,8 @@ import Payment from "../Payment/Payment";
 import { useNavigate } from "react-router-dom";
 import Style from "./Pricing.module.css";
 
+import { useLanguage } from '../LanguageContext';
+
 const pricingData = [
   {
     type: "Like a pussy",
@@ -55,28 +57,41 @@ export default function Pricing() {
   };
   const isScreenSmall = useMediaQuery({ maxWidth: 576 });
 
+  const { language } = useLanguage();
+
   return (
     <>
       <Helmet>
-        <title>Subscription</title>
+        <title>{language === "en" ? "Subscription" : "الاشتراك "}</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="container pt-5">
         <div className="pt-4 font-sm">
           <p>
-            Enter Your Data{" "}
+            {language === "en" ? "Enter Your Data" : " ادخل بياناتك"}{" "}
             <span className="text-color">
               <i className="fa-solid text-color fa-angles-right px-3"></i>{" "}
-              Choose Your Subscription
+              {language === "en" ? "Choose Your Subscription" : "اختر اشتراكك"}
             </span>
           </p>
         </div>
         <div className="row text-center py-4">
-          <h3 className="fw-bold">
-            Choose your subscription with{" "}
-            <span className="text-color">affordable price</span>
-          </h3>
-          <h4>And enjoy all courses</h4>
+          {language === 'en' ? (
+            <>
+              <h3 className="fw-bold">
+                Choose your subscription with{' '}
+                <span className="text-color">affordable price</span>
+              </h3>
+              <h4>And enjoy all courses</h4>
+            </>
+          ) : (
+            <>
+              <h3 className="fw-bold">
+                اختر اشتراكك بسعر <span className="text-color">معقول</span>
+              </h3>
+              <h4>واستمتع بجميع الدورات</h4>
+            </>
+             )}
         </div>
 
         <div className={`${isScreenSmall ? "container" : ""}`}>
@@ -138,7 +153,7 @@ export default function Pricing() {
             onClick={navigateToPayment}
             className="btn bg-color text-white rounded-5 px-4"
           >
-            Continue
+            {language === "en" ? "Continue" : "استمر"}
           </button>
         </div>
       </div>

@@ -7,6 +7,7 @@ import person3 from '../../Assets/man2.jpg';
 import Img2 from '../../Assets/personal2.jpg';
 import Img3 from '../../Assets/personal3.jpg';
 import Img4 from '../../Assets/personal4.jpeg';
+import { useLanguage } from '../LanguageContext';
 
 const personalDevelopmentCourses = [
   {
@@ -56,15 +57,17 @@ const personalDevelopmentCourses = [
 ];
 
 export default function Personal() {
+  const { language } = useLanguage();
   return (
     <>
       <div className="container pb-3">
         <div className="d-flex align-items-center justify-content-between">
           <h3 className="fw-bold">
-            The courses in <span className="text-color">personal development</span>
+            {language === 'en' ? 'The courses in ' : 'الدورات في '}
+            <span className="text-color">{language === 'en' ? 'personal development' : 'التنمية الشخصية'}</span>
           </h3>
           <button className="btn fw-bold text-color font-sm">
-            See All
+            {language === "en" ? "See All" : "طالع الكل"}
           </button>
         </div>
         <div className="row pb-5 pt-3">

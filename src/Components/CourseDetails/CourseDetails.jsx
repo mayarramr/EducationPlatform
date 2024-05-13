@@ -8,10 +8,12 @@ import person1 from '../../Assets/img12.jpg'
 import person2 from '../../Assets/man2.jpg'
 import person3 from '../../Assets/man1 (1).jpg'
 import { useMediaQuery } from "react-responsive";
+import { useLanguage } from '../LanguageContext'
 
 
 
 export default function CourseDetails() {
+  const { language } = useLanguage();
   const coursesData = [
     { imgSrc: img1, instructorImgSrc: person1, instructorName: 'Sara', discountedPrice: '80$' ,category: 'Business & Management'},
     { imgSrc: Img3, instructorImgSrc: person2, instructorName: 'Nour', discountedPrice: '80$' ,category:'Web Development'},
@@ -85,10 +87,10 @@ export default function CourseDetails() {
       <h2>Learn about Adobe XD & Prototyping</h2>
       <p>Introduction about XD</p>
       <div className="d-flex small-font align-items-center justify-content-between">
-        <p className=" text-gold">Try course reader now</p>
+        <p className=" text-gold">{language === "en" ? "Try course reader now" : "جرب قارئ المقرر الدراسي الآن"}</p>
         <div className="d-flex align-items-center">
           <i className="fa-regular fa-clock me-1"></i>
-          <p>1 hour</p>
+          <p>{language === "en" ? "1 hour" : "ساعة"}</p>
         </div>
       </div>
     </div>
@@ -119,11 +121,11 @@ export default function CourseDetails() {
           <p className="my-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis dolores sed sapiente minus nam porro modi reiciendis saepe commodi, ut ducimus maiores possimus, perspiciatis excepturi ratione sint molestiae omnis beatae quibusdam exercitationem suscipit aliquid! Eum magni similique ullam quasi dolor!</p>
         </div>
         <div>
-          <h5 className="fw-bold">Who is course this for ?</h5>
+          <h5 className="fw-bold">{language === "en" ? "Who is this course for ?" : "??? ??? ???????"}</h5>
           <p className="my-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis dolores sed sapiente minus nam porro modi reiciendis saepe commodi, ut ducimus maiores possimus, perspiciatis excepturi ratione sint molestiae omnis beatae quibusdam exercitationem suscipit aliquid! Eum magni similique ullam quasi dolor!</p>
         </div>
         <div>
-          <h5 className="fw-bold">Achivable</h5>
+          <h5 className="fw-bold">{language === "En" ? "Achievable" : "???????"}</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, accusamus alias numquam facilis doloribus modi aperiam repudiandae. Hic, repudiandae dolore nemo quam eos excepturi error reprehenderit veniam numquam! Corrupti odit quia, est, minima facere quas eaque fugiat doloribus suscipit veritatis consequuntur perspiciatis? Enim facilis voluptatem vel delectus quo, ipsa esse harum odit perferendis aliquid nemo. Quam, sit nostrum? Nostrum ullam libero fugiat optio deleniti, ea consequuntur aspernatur atque facilis voluptatum doloribus tempora incidunt debitis in voluptate ad delectus voluptates maiores?</p>
         </div>
       </div>
@@ -147,7 +149,7 @@ export default function CourseDetails() {
       </div>
 
       <div className="d-flex align-items-center pt-5 py-3 justify-content-between">
-        <div><h5 className="fw-bold">Students also bought</h5></div>
+        <div><h5 className="fw-bold">{language === "en" ? "Students also bought" : "اشترى الطلاب أيضا"}</h5></div>
         <div className="d-flex justify-content-end">
           <div
             className="rounded-1 mx-3 p-2 d-flex align-items-center justify-content-center"

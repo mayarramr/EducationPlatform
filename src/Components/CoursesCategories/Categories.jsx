@@ -9,6 +9,9 @@ import artificialImage from '../../Assets/ai.jpg';
 import designImage from '../../Assets/design.jpg';
 import langImage from '../../Assets/language.jpg';
 import freeImage from '../../Assets/enterpreneurship.jpg';
+
+import { useLanguage } from '../LanguageContext'
+
 const Categories = () => {
   const categories = [
     { name: 'Business & Management ', image: businessImage, numCourses: 10 },
@@ -26,6 +29,8 @@ const Categories = () => {
  
 
   const CategoryCard = ({ category }) => {
+    const {language} = useLanguage();
+
     return (
       <div className="mt-6 bg-white rounded-4 p-3 my-4 shadowbox d-flex flex-column" style={{ height: '340px' }}>
         <div style={{ height: '50%', overflow: 'hidden' }}>
@@ -36,10 +41,10 @@ const Categories = () => {
           <h5 className="fw-bold ps-3 text-center">{category.name}</h5>
         </div>
 
-        <p className="font-sm fw-bold ms-2">{category.numCourses} Courses</p>
+        <p className="font-sm fw-bold ms-2">{category.numCourses} {language === 'en' ? 'Courses' : ' الدورات'}</p>
 
         <div className="mt-auto text-center">
-          <Link to={`/courses`} className="btn bg-color text-white rounded-5">View Courses</Link>
+          <Link to={`/courses`} className="btn bg-color text-white rounded-5">{language === 'en' ? 'View Courses' : 'عرض الدورات'}</Link>
         </div>
       </div>
     );

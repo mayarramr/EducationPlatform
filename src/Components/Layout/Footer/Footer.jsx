@@ -33,20 +33,23 @@ export default function Footer() {
                 Subscribe to get our new Newsletter
               </h6>
             </div>
-            <div className={`row justify-content-center pb-4 `}>
-            <div className="d-flex">
-            <input
-                type="email"
-                className="bg-transparent border-main py-2 gray-border rounded-5 px-3"
-                placeholder="Your Email"
-              />
-              <button
-                className={`${Style.buttonStyle} ${isScreenSmall ? "w-25 " : "px-4"} btn bg-color rounded-5 text-white ms-2 small-font py-2`}
-              >
-                Subscribe
-              </button>
+            <div className="row justify-content-center pb-4">
+                <div className="col-12 col-md-6 d-flex justify-content-center">
+                  <div className="d-flex">
+                    <input
+                      type="email"
+                      className="bg-transparent border-main py-2 gray-border rounded-5 px-3"
+                      placeholder="Your Email"
+                    />
+                    <button
+                      className={`${Style.buttonStyle} ${isScreenSmall ? "w-25 " : "px-4"} btn bg-color rounded-5 text-white ms-2 small-font py-2`}
+                    >
+                      Subscribe
+                    </button>
+                  </div>
+                </div>
             </div>
-            </div>
+
 
             <div className="d-flex gray-text justify-content-center">
               <h6 className={`${Style.whitetext} m-0 font-sm`}>Careers</h6>

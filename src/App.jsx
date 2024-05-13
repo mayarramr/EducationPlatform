@@ -1,3 +1,4 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
@@ -11,6 +12,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Profile from "./Components/Profile/Profile";
 import Courses from "./Components/Courses/Courses";
 import Quiz from "./Components/Quiz/Quiz";
+
+import { LanguageProvider } from "./Components/LanguageContext";
+import Navbar from "./Components/Layout/Navbar/Navbar";
+
 import Categories from "./Components/CoursesCategories/Categories";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Page2 from "./Components/Dashboard/Page2";
@@ -38,7 +43,11 @@ let routers = createBrowserRouter([
 export default function App() {
   return (
     <>
-      <RouterProvider router={routers}></RouterProvider>
+    <LanguageProvider>
+      <RouterProvider router={routers}>
+        <Navbar />
+      </RouterProvider>
+    </LanguageProvider>
     </>
   );
 }

@@ -4,6 +4,7 @@ import library1 from "../../Assets/libraryImg1.jpg";
 import libraryImg3 from "../../Assets/IibraryImg3.png";
 import libraryImg4 from "../../Assets/libraryImg4 (2).jpeg";
 import img12 from "../../Assets/img12.jpg";
+import { useLanguage } from "../LanguageContext";
 
 const lessons = [
   {
@@ -36,14 +37,15 @@ const lessons = [
 ];
 
 export default function Lessons() {
+  const {language} = useLanguage();
   return (
     <>
       <div className="mt-5 pt-5">
         <div className="bg-greenlight">
           <div className="container py-4">
             <div className="d-flex align-items-center justify-content-between">
-              <h3 className="fw-bold">Welcome Lina, ready for your next lesson</h3>
-              <button className="btn fw-bold text-color font-sm">View History</button>
+              <h3 className="fw-bold">{language === "en" ? "Welcome Lina, ready for your next lesson" : "مرحبا بك لينا ، جاهزة لدرسك القادم"}</h3>
+              <button className="btn fw-bold text-color font-sm">{language === "en" ? "View History" : "عرض التاريخ"}</button>
             </div>
             <div className="row">
               {lessons.map((lesson) => (
@@ -73,7 +75,7 @@ export default function Lessons() {
                     </div>
                     <div className="d-flex justify-content-end">
                       <p className="small-font gray-text mt-1 fw-bold">
-                        Lesson {lesson.lessonNumber} of {lesson.totalLessons}
+                      {language === 'en' ? `Lesson ${lesson.lessonNumber} of ${lesson.totalLessons}` : `الدرس ${lesson.lessonNumber} ?? ${lesson.totalLessons}`}
                       </p>
                     </div>
                   </div>

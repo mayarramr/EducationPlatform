@@ -5,11 +5,19 @@ import img12 from "../../../Assets/img12.jpg";
 import { Link, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import DashboardNavbar from "../../DashboardNavbar/DashboardNavbar";
+import { useLanguage } from '../../LanguageContext';
 
 export default function Navbar() {
   const location = useLocation();
   const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
 
+const { language, toggleLanguage } = useLanguage();
+
+  const handleLanguageToggle = () => {
+    toggleLanguage();
+  };
+  
+  
   return <>
     {location.pathname === '/admin-dashboard' || location.pathname === '/page2' ?
       <> <DashboardNavbar /> </>
@@ -20,6 +28,9 @@ export default function Navbar() {
             <>
               <nav className={`navbar navbar-expand-lg fixed-top p-0 ${location.pathname === "/home" ? "bg-color text-white" : "bg-white"}`}>
                 <div className="container">
+                <button className={`${Style.languageToggleBtn}`} onClick={handleLanguageToggle}> {/* Call handleLanguageToggle */}
+                    {language === "en" ? "العربية" : "English"}
+                </button>
                   <Link className="navbar-brand" to={"/home"}>
                     <img src={logo} className="rounded-5" alt="logo" style={{ width: "55px", height: "55px" }} />
                   </Link>
@@ -73,6 +84,9 @@ export default function Navbar() {
             <>
               <nav className={`navbar navbar-expand-lg fixed-top p-0 ${location.pathname === "/home" ? "bg-color text-white" : "bg-white"}`}>
                 <div className="container">
+		            <button className={`${Style.languageToggleBtn}`} onClick={handleLanguageToggle}>
+            		  {language === "en" ? "العربية" : "English"}
+                </button>
                   <Link className="navbar-brand" to={"/home"}>
                     <img src={logo} className="rounded-5" alt="logo" style={{ width: "55px", height: "55px" }} />
                   </Link>

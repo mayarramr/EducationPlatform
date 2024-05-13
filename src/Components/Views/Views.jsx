@@ -2,6 +2,7 @@ import React from 'react';
 import Style from './Views.module.css';
 import Img1 from '../../Assets/view1.jpg';
 import person1 from '../../Assets/img12.jpg';
+import { useLanguage } from '../LanguageContext';
 
 const courses = [
   {
@@ -20,14 +21,15 @@ const courses = [
 ];
 
 export default function Views() {
+  const { language } = useLanguage();
   return (
     <>
       <div className="bg-greenlight">
         <div className="container py-5">
           <div className="d-flex align-items-center justify-content-between">
-            <h5 className="fw-bold">Students are viewing</h5>
+            <h5 className="fw-bold">{language === "en" ? "Students are also viewing" : "الطلاب أيضا يشاهدون"}</h5>
             <button className="btn fw-bold text-color font-sm">
-              See All
+              {language === "en" ? "See All" : "طالع الكل"} 
             </button>
           </div>
           <div className="row pb-5 pt-3">

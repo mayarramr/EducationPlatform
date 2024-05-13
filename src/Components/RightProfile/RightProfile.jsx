@@ -4,17 +4,20 @@ import img1 from '../../Assets/man1 (1).jpg'
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
 
+import { useLanguage } from '../LanguageContext';
+
 export default function RightProfile() {
   const isScreenSmall = useMediaQuery({ minWidth: 0, maxWidth: 768 });
+  const { language } = useLanguage();
     return <>
-    <h5 className="text-center fw-bold">Profile</h5>
+    <h5 className="text-center fw-bold">{language === "en" ? "Profile" : "الملف الشخصي"}</h5>
     <div className="text-center ">
     <img src={img1} className={`w-50 rounded-pill p-2 ${Style.border}`} alt="" />
    <div className="d-flex justify-content-center align-items-center">
    <p className="fw-bold">Maietry Prajapti</p>
     <IoShieldCheckmarkSharp className="text-color mx-2" />
    </div>
-   <p className="small-font fw-bold">College Student</p>
+   <p className="small-font fw-bold">{language === "en" ? "College Student" : "طالب جامعي"}</p>
    <div style={{backgroundColor:'#F8F8F8'}} className={`rounded-4 py-1 ${isScreenSmall ? "w-75 mx-auto mt-3" : ""}`}>
     <div className="d-flex small-font justify-content-around my-2 rounded-3">
     <div className="d-flex align-items-center">
@@ -76,7 +79,7 @@ export default function RightProfile() {
    </div>
     </div>
 <div className={`border-top mt-3 ${isScreenSmall? "mx-5" :""}`}>
-<p className="fw-bold mb-3">ToDo List</p>
+<p className="fw-bold mb-3">{language === "en" ? "ToDo List" : "قائمة المهام"}</p>
     <div className="d-flex align-items-center">
     <input type="checkbox" />
     <p className="m-0 small-font text-bg-dark-subtle fw-bold ms-1">Developing Restaurant Apps</p>
