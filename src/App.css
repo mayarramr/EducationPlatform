@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+.porgressbar{
+  width: 900px;
+  height: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+.porgressbar div{
+  width: 33.3%;
+  height: 100%;
+  background-color: rgb(98, 0, 255);
+}
+
+/* li .activee {
+  color: #7ED956;
+  font-weight: bold;
+
+}
+
+.navbar {
+
+  .navbar-nav li {
+    color: black;
+  }
+
+  .navbar-nav li.active a {
+    color: #7ED956;
+    font-weight: bold;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+
+.nav1 {
+  background: transparent;
+} */
+

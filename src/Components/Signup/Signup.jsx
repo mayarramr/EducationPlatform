@@ -7,8 +7,10 @@ import { Helmet } from "react-helmet";
 import { useMediaQuery } from "react-responsive";
 
 import { useLanguage } from '../LanguageContext';
+import CompleteProfile from "../CompleteProfile/CompleteProfile";
 
 export default function Signup() {
+  const [showModel, setShowModel] = useState(false);
   const isScreenSmall = useMediaQuery({ maxWidth: 576 });
   let navigate = useNavigate();
 
@@ -109,12 +111,13 @@ export default function Signup() {
 
               <div className="d-flex justify-content-end pe-5">
                 <button
-                  onClick={() => navigateToLogin()}
+                    onClick={() => setShowModel(true)}
                   className="btn bg-color rounded-5 text-white px-4 py-1"
                 >
                   {language === "en" ? "Continue" : "استمر"}
                 </button>
               </div>
+              {showModel && <CompleteProfile onClose={()=>setShowModel(false)}/>}
               <div className="d-flex justify-content-center align-items-center mt-4">
                 {language === 'en' ? (
                   <>
